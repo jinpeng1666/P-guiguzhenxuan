@@ -6,6 +6,8 @@ import App from '@/App.vue'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
+import 'virtual:svg-icons-register'
+
 const app = createApp(App)
 
 // 安装element-plus插件
