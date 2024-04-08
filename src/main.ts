@@ -11,9 +11,15 @@ import '@/styles/index.scss'
 
 import 'virtual:svg-icons-register'
 
+// 引入路由
+import router from './router'
+
 const app = createApp(App)
 
 // 安装element-plus插件
 app.use(ElementPlus)
+
+// 注册路由
+app.use(router)
 
 app.mount('#app')

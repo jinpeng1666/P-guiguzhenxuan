@@ -5,6 +5,7 @@
     <svg>
       <use xlink:href="#icon-love"></use>
     </svg>
+    <router-view></router-view>
   </div>
 </template>
 
