@@ -8,7 +8,7 @@
 
 #### 1.1.1环境准备
 
-- node v16.14.2 
+- node v16.14.2
 - pnpm 8.0.0
 
 #### 1.1.2初始化项目
@@ -58,12 +58,12 @@ npx eslint --init
 ```
 module.exports = {
    //运行环境
-    "env": { 
+    "env": {
         "browser": true,//浏览器端
         "es2021": true,//es2021
     },
     //规则继承
-    "extends": [ 
+    "extends": [
        //全部规则默认是关闭的,这个配置项开启推荐规则,推荐规则参照文档
        //比如:函数不能重名、对象不能出现重复key
         "eslint:recommended",
@@ -451,7 +451,7 @@ module.exports = {
 配置husky
 
 ```
-npx husky add .husky/commit-msg 
+npx husky add .husky/commit-msg
 ```
 
 在生成的commit-msg文件中添加下面的命令
@@ -516,8 +516,6 @@ app.use(ElementPlus, {
 })
 ```
 
-
-
 **Element Plus全局组件类型声明**
 
 ```
@@ -559,7 +557,7 @@ export default defineConfig({
   "compilerOptions": {
     "baseUrl": "./", // 解析非相对模块的基地址，默认是当前目录
     "paths": { //路径映射，相对于baseUrl
-      "@/*": ["src/*"] 
+      "@/*": ["src/*"]
     }
   }
 }
