@@ -1,9 +1,15 @@
 <template>
-  <div>
-    <h1>我是登录路由</h1>
-  </div>
+  <div class="login_container"></div>
 </template>
 
 <script setup lang="ts"></script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.login_container {
+  width: 100%;
+  height: 100vh;
+  background: url('@/assets/images/background.png') no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+</style>
