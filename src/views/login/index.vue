@@ -6,16 +6,26 @@
           :model="formData"
           label-width="auto"
           style="max-width: 450px; margin: 0 auto"
+          :rules="loginRules"
         >
-          <el-form-item label="账号" class="userForm">
-            <el-input v-model="formData.username" />
+          <el-form-item label="账号" prop="username">
+            <el-input v-model="formData.username" placeholder="请输入账号" />
           </el-form-item>
-          <el-form-item label="密码">
-            <el-input v-model="formData.password" />
+          <el-form-item label="密码" prop="password">
+            <el-input
+              v-model="formData.password"
+              type="password"
+              show-password
+            />
+          </el-form-item>
+          <el-form-item>
+            <!-- <el-button style="margin: 0 auto"></el-button> -->
+            <div style="margin: 0 auto">
+              <el-button round size="large" class="login">登录</el-button>
+              <el-button round size="large" class="register">注册</el-button>
+            </div>
           </el-form-item>
         </el-form>
-        <el-button round size="large" class="login">登录</el-button>
-        <el-button round size="large" class="register">注册</el-button>
       </el-col>
     </el-row>
   </div>
@@ -24,10 +34,35 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+// 表单数据
 let formData = ref({
   username: '',
   password: '',
 })
+
+// 表单输入规则
+let loginRules = {
+  username: [
+    {
+      required: true,
+      message: '请输入账号',
+      trigger: 'blur',
+    },
+  ],
+  password: [
+    {
+      required: true,
+      message: '请输入密码',
+      trigger: 'blur',
+    },
+    {
+      min: 6,
+      max: 16,
+      message: '密码长度在6-16位之间',
+      trigger: 'blur',
+    },
+  ],
+}
 </script>
 
 <style scoped lang="scss">
