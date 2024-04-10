@@ -21,7 +21,9 @@
           <el-form-item>
             <!-- <el-button style="margin: 0 auto"></el-button> -->
             <div style="margin: 0 auto">
-              <el-button round size="large" class="login">登录</el-button>
+              <el-button round size="large" class="login" @click="login">
+                登录
+              </el-button>
               <el-button round size="large" class="register">注册</el-button>
             </div>
           </el-form-item>
@@ -32,10 +34,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { reactive } from 'vue'
+import { useRouter } from 'vue-router'
+import { ElNotification } from 'element-plus'
+
+// 获取路由器
+let $router = useRouter()
 
 // 表单数据
-let formData = ref({
+let formData = reactive({
   username: '',
   password: '',
 })
@@ -62,6 +69,29 @@ let loginRules = {
       trigger: 'blur',
     },
   ],
+}
+
+// 引入仓库
+import useUserStore from '@/store/modules/user'
+let userStore = useUserStore()
+
+// 登录按钮回调
+let login = async () => {
+  try {
+    await userStore.userLogin(formData)
+    $router.push('/')
+    // 登录成功提示消息
+    ElNotification({
+      type: 'success',
+      message: '登录成功',
+    })
+  } catch (error) {
+    // 登录失败提示消息
+    ElNotification({
+      type: 'error',
+      message: (error as Error).message,
+    })
+  }
 }
 </script>
 
