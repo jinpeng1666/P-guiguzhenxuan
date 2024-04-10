@@ -15,6 +15,7 @@ const useUserStore = defineStore('User', {
     async userLogin(data: loginForm) {
       const result: any = await reqLogin(data)
       if (result.code == 200) {
+        this.token = result.data.token
         setToken(result.data.token)
         return 'ok'
       } else {
