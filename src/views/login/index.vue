@@ -3,6 +3,7 @@
     <el-row align="middle" style="width: 100%; height: 100%">
       <el-col style="text-align: center">
         <el-form
+          ref="form"
           :model="formData"
           label-width="auto"
           style="max-width: 450px; margin: 0 auto"
@@ -34,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElNotification } from 'element-plus'
 
@@ -75,23 +76,29 @@ let loginRules = {
 import useUserStore from '@/store/modules/user'
 let userStore = useUserStore()
 
+const form = ref()
+
 // 登录按钮回调
-let login = async () => {
-  try {
-    await userStore.userLogin(formData)
-    $router.push('/')
-    // 登录成功提示消息
-    ElNotification({
-      type: 'success',
-      message: '登录成功',
-    })
-  } catch (error) {
-    // 登录失败提示消息
-    ElNotification({
-      type: 'error',
-      message: (error as Error).message,
-    })
-  }
+let login = () => {
+  form.value.validate(async (isOK: boolean) => {
+    if (isOK) {
+      try {
+        await userStore.userLogin(formData)
+        $router.push('/')
+        // 登录成功提示消息
+        ElNotification({
+          type: 'success',
+          message: '登录成功',
+        })
+      } catch (error) {
+        // 登录失败提示消息
+        ElNotification({
+          type: 'error',
+          message: (error as Error).message,
+        })
+      }
+    }
+  })
 }
 </script>
 
