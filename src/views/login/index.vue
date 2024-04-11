@@ -39,6 +39,9 @@ import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElNotification } from 'element-plus'
 
+// 引入获取当前时间的函数
+import { getTime } from '@/utils/time'
+
 // 获取路由器
 let $router = useRouter()
 
@@ -88,7 +91,8 @@ let login = () => {
         // 登录成功提示消息
         ElNotification({
           type: 'success',
-          message: '登录成功',
+          message: '欢迎回来',
+          title: `HI,${getTime()}好`,
         })
       } catch (error) {
         // 登录失败提示消息
