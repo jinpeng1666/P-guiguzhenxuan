@@ -10,13 +10,18 @@
           :rules="loginRules"
         >
           <el-form-item label="账号" prop="username">
-            <el-input v-model="formData.username" placeholder="请输入账号" />
+            <el-input
+              v-model="formData.username"
+              placeholder="请输入账号"
+              @keydown.enter="login"
+            />
           </el-form-item>
           <el-form-item label="密码" prop="password">
             <el-input
               v-model="formData.password"
               type="password"
               show-password
+              @keydown.enter="login"
             />
           </el-form-item>
           <el-form-item>
