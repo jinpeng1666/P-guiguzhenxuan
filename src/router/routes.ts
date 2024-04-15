@@ -11,6 +11,7 @@ export const constantRoute = [
     path: '/',
     component: () => import('@/layout/index.vue'),
     name: 'layout',
+    redirect: '/home',
     children: [
       {
         path: '/home',
@@ -27,22 +28,22 @@ export const constantRoute = [
           title: '员工',
         },
         children: [
-          {
-            path: '/lisi',
-            component: () => import('@/views/home/index.vue'),
-            meta: {
-              title: '李四',
-            },
-            children: [],
-          },
-          {
-            path: '/wangwu',
-            component: () => import('@/views/home/index.vue'),
-            meta: {
-              title: '王五',
-            },
-            children: [],
-          },
+          // {
+          //   path: '/lisi',
+          //   component: () => import('@/views/home/index.vue'),
+          //   meta: {
+          //     title: '李四',
+          //   },
+          //   children: [],
+          // },
+          // {
+          //   path: '/wangwu',
+          //   component: () => import('@/views/home/index.vue'),
+          //   meta: {
+          //     title: '王五',
+          //   },
+          //   children: [],
+          // },
         ],
       },
       {
