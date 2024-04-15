@@ -1,25 +1,35 @@
 <template>
   <div>
-    <el-scrollbar class="scrollbar">
-      <!-- element菜单 -->
-      <el-menu>
-        <el-menu-item>首页</el-menu-item>
-        <el-menu-item>盈利</el-menu-item>
-        <el-sub-menu>
-          <template #title>员工详情</template>
-          <el-menu-item>张三</el-menu-item>
-          <el-menu-item>李四</el-menu-item>
+    <!-- element菜单 -->
+    <el-menu>
+      <template v-for="item in menuList" :key="item.path">
+        <!-- 没有子路由 -->
+        <el-menu-item v-if="item.children.length <= 1" :index="item.path">
+          {{ item.meta.title }}
+        </el-menu-item>
+        <!-- 有子路由 -->
+        <el-sub-menu v-if="item.children.length > 1" :index="item.path">
+          <template #title>{{ item.meta.title }}</template>
+          <Menu :menuList="item.children"></Menu>
         </el-sub-menu>
-      </el-menu>
-    </el-scrollbar>
+      </template>
+    </el-menu>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { defineProps } from 'vue'
+defineProps(['menuList'])
+</script>
+
+<script lang="ts">
+export default {
+  name: 'Menu',
+}
+</script>
 
 <style scoped lang="scss">
-.scrollbar {
-  width: 100%;
-  height: calc(100vh - 30px);
+.el-menu {
+  border-right: none;
 }
 </style>

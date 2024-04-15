@@ -4,7 +4,9 @@
       <!-- 左侧导航栏 -->
       <el-aside width="200px">
         <Logo></Logo>
-        <Menu></Menu>
+        <el-scrollbar class="menuScrollbar">
+          <Menu :menuList="menuList"></Menu>
+        </el-scrollbar>
       </el-aside>
       <!-- 右侧 -->
       <el-container style="height: 100%">
@@ -20,11 +22,27 @@
 <script setup lang="ts">
 import Logo from './components/logo/index.vue'
 import Menu from './components/menu/index.vue'
+
+import { computed } from 'vue'
+
+// 获取路由信息仓库
+import useRoutesStore from '@/store/modules/routes'
+const routesStore = useRoutesStore()
+
+// 获取需要在菜单中展示的路由
+const menuList = computed(() => {
+  return routesStore.menuRoutes.filter((route: any) => route.path === '/')[0]
+    .children
+})
 </script>
 
 <style scoped lang="scss">
 .common-layout {
   width: 100%;
   height: 100vh;
+}
+.menuScrollbar {
+  width: 100%;
+  height: calc(100vh - 30px);
 }
 </style>
