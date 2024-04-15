@@ -13,7 +13,9 @@
         <!-- 右侧面包屑 -->
         <el-header height="30px">头部内容</el-header>
         <!-- 右侧展示内容区 -->
-        <el-main>主要内容</el-main>
+        <el-main>
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
   </div>
