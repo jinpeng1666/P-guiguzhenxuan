@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- element菜单 -->
-    <el-menu>
+    <el-menu router>
       <template v-for="item in menuList" :key="item.path">
         <!-- 没有子路由 -->
         <el-menu-item v-if="item.children.length <= 1" :index="item.path">
