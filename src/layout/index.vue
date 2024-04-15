@@ -4,6 +4,7 @@
       <!-- 左侧导航栏 -->
       <el-aside width="200px">
         <Logo></Logo>
+        <Menu></Menu>
       </el-aside>
       <!-- 右侧 -->
       <el-container style="height: 100%">
@@ -18,6 +19,7 @@
 
 <script setup lang="ts">
 import Logo from './components/logo/index.vue'
+import Menu from './components/menu/index.vue'
 </script>
 
 <style scoped lang="scss">
