@@ -17,6 +17,9 @@ import router from './router'
 // 引入仓库
 import pinia from './store'
 
+// 引入element图标
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
 const app = createApp(App)
 
 // 安装element-plus插件
@@ -27,5 +30,10 @@ app.use(router)
 
 // 注册仓库
 app.use(pinia)
+
+// 图标
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
 
 app.mount('#app')
