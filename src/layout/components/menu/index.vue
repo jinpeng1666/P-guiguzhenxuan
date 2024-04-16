@@ -1,7 +1,11 @@
 <template>
   <div>
     <!-- element菜单 -->
-    <el-menu router style="background-color: #a3b18a">
+    <el-menu
+      router
+      style="background-color: #a3b18a"
+      :default-active="$route.path"
+    >
       <template v-for="item in menuList" :key="item.path">
         <!-- 没有子路由 -->
         <el-menu-item v-if="item.children.length <= 1" :index="item.path">
@@ -19,7 +23,13 @@
 
 <script setup lang="ts">
 import { defineProps } from 'vue'
+// 引入路由对象
+import { useRoute } from 'vue-router'
+
 defineProps(['menuList'])
+
+// 获取路由对象
+const $route = useRoute()
 </script>
 
 <script lang="ts">
