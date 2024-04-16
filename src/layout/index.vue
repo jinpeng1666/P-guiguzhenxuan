@@ -11,8 +11,8 @@
       <!-- 右侧 -->
       <el-container style="height: 100%">
         <!-- 右侧面包屑 -->
-        <el-header height="30px" style="background-color: #a3b18a">
-          头部内容
+        <el-header height="30px" style="background-color: #a3b18a; padding: 0">
+          <Tabbar></Tabbar>
         </el-header>
         <!-- 右侧展示内容区 -->
         <el-main style="background-color: #dad7cd">
@@ -26,6 +26,7 @@
 <script setup lang="ts">
 import Logo from './components/logo/index.vue'
 import Menu from './components/menu/index.vue'
+import Tabbar from './components/tabbar/index.vue'
 
 import { computed } from 'vue'
 
