@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 30px; background-color: pink">
+  <div style="height: 30px; background-color: #a3b18a">
     <el-row style="height: 30px">
       <el-col :span="4" style="height: 30px">
         <svg style="width: 30px; height: 30px">
@@ -20,6 +20,7 @@ import setting from '@/setting'
 <style scoped lang="scss">
 .title {
   font-weight: 700;
-  font-size: 25px;
+  font-size: 20px;
+  line-height: 30px;
 }
 </style>

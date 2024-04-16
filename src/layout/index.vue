@@ -2,7 +2,7 @@
   <div class="common-layout">
     <el-container style="height: 100%">
       <!-- 左侧导航栏 -->
-      <el-aside width="200px">
+      <el-aside width="200px" style="background-color: #a3b18a">
         <Logo></Logo>
         <el-scrollbar class="menuScrollbar">
           <Menu :menuList="menuList"></Menu>
@@ -11,9 +11,11 @@
       <!-- 右侧 -->
       <el-container style="height: 100%">
         <!-- 右侧面包屑 -->
-        <el-header height="30px">头部内容</el-header>
+        <el-header height="30px" style="background-color: #a3b18a">
+          头部内容
+        </el-header>
         <!-- 右侧展示内容区 -->
-        <el-main>
+        <el-main style="background-color: #dad7cd">
           <router-view></router-view>
         </el-main>
       </el-container>
