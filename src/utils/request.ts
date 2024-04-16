@@ -1,15 +1,25 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
 
+// 引入user仓库，包含token
+import useUserStore from '@/store/modules/user.ts'
+
 const request = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
   timeout: 5000,
 })
 
+// 请求拦截器
 request.interceptors.request.use((config) => {
+  const userStore = useUserStore()
+  // 请求头带有token
+  if (userStore.token) {
+    config.headers.Token = userStore.token
+  }
   return config
 })
 
+// 响应拦截器
 request.interceptors.response.use(
   (response) => {
     return response.data
