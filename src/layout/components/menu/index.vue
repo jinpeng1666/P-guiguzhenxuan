@@ -5,6 +5,7 @@
       router
       style="background-color: #a3b18a"
       :default-active="$route.path"
+      :collapse="settingStore.isCollapse"
     >
       <template v-for="item in menuList" :key="item.path">
         <!-- 没有子路由 -->
@@ -29,6 +30,10 @@
 import { defineProps } from 'vue'
 // 引入路由对象
 import { useRoute } from 'vue-router'
+
+// 引入setting仓库
+import useSettingStore from '@/store/modules/setting.ts'
+const settingStore = useSettingStore()
 
 defineProps(['menuList'])
 
