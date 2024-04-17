@@ -3,9 +3,6 @@ export const constantRoute = [
     path: '/login',
     component: () => import('@/views/login/index.vue'),
     name: 'login',
-    meta: {
-      isShow: false,
-    },
   },
   {
     path: '/',
@@ -18,6 +15,7 @@ export const constantRoute = [
         component: () => import('@/views/home/index.vue'),
         meta: {
           title: '首页',
+          icon: 'House',
         },
         children: [],
       },
@@ -26,6 +24,7 @@ export const constantRoute = [
         component: () => import('@/views/employee/index.vue'),
         meta: {
           title: '员工',
+          icon: 'UserFilled',
         },
         children: [],
       },
@@ -34,6 +33,7 @@ export const constantRoute = [
         component: () => import('@/views/department/index.vue'),
         meta: {
           title: '部门',
+          icon: 'Lock',
         },
         children: [],
       },
@@ -42,6 +42,7 @@ export const constantRoute = [
         component: () => import('@/views/salary/index.vue'),
         meta: {
           title: '薪资',
+          icon: 'Histogram',
         },
         children: [],
       },
