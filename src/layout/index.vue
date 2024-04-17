@@ -2,7 +2,12 @@
   <div class="common-layout">
     <el-container style="height: 100%">
       <!-- 左侧导航栏 -->
-      <el-aside class="aside">
+      <el-aside
+        :class="{
+          aside: !settingStore.isCollapse,
+          collapseAside: settingStore.isCollapse,
+        }"
+      >
         <Logo></Logo>
         <el-scrollbar class="menuScrollbar">
           <Menu :menuList="menuList"></Menu>
@@ -34,6 +39,10 @@ import { computed } from 'vue'
 import useRoutesStore from '@/store/modules/routes'
 const routesStore = useRoutesStore()
 
+// 引入setting仓库
+import useSettingStore from '@/store/modules/setting.ts'
+const settingStore = useSettingStore()
+
 // 获取需要在菜单中展示的路由
 const menuList = computed(() => {
   return routesStore.menuRoutes.filter((route: any) => route.path === '/')[0]
@@ -52,6 +61,11 @@ const menuList = computed(() => {
 .aside {
   background-color: #a3b18a;
   width: $el-aside-height;
+}
+
+.collapseAside {
+  background-color: #a3b18a;
+  width: $el-aside-collapse-height;
 }
 
 .menuScrollbar {
