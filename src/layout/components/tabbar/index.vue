@@ -1,7 +1,7 @@
 <template>
   <div class="tabbar">
     <div class="tabbar_left">
-      <el-icon style="margin-right: 5px">
+      <el-icon style="margin-right: 5px" @click="changeIsCollapse">
         <Expand />
       </el-icon>
       <!-- 左侧面包屑 -->
@@ -41,7 +41,17 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// 引入setting仓库
+import useSettingStore from '@/store/modules/setting.ts'
+const settingStore = useSettingStore()
+
+// 点击改变是否左侧菜单折叠
+const changeIsCollapse = () => {
+  settingStore.isCollapse = !settingStore.isCollapse
+  console.log(settingStore.isCollapse)
+}
+</script>
 
 <style scoped lang="scss">
 .tabbar {
