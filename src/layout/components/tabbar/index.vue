@@ -59,11 +59,11 @@ const changeIsCollapse = () => {
   height: 100%;
   display: flex;
   justify-content: space-between;
-
   .tabbar_left {
     display: flex;
     align-items: center;
     margin-left: 10px;
+    transition: width 0.3s;
   }
 
   .tabbar_right {
