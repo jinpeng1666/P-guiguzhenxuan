@@ -10,9 +10,15 @@
         {{ setting.title }}
       </el-col>
     </el-row>
-    <svg style="width: 30px; height: 30px" v-else>
-      <use xlink:href="#icon-logo"></use>
-    </svg>
+    <div
+      v-else
+      class="height"
+      style="display: flex; align-items: center; justify-content: center"
+    >
+      <svg style="width: 30px; height: 30px">
+        <use xlink:href="#icon-logo"></use>
+      </svg>
+    </div>
   </div>
 </template>
 
