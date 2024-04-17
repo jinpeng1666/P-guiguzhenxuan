@@ -60,12 +60,12 @@ const menuList = computed(() => {
 
 .aside {
   background-color: #a3b18a;
-  width: $el-aside-height;
+  width: $el-aside-width;
 }
 
 .collapseAside {
   background-color: #a3b18a;
-  width: $el-aside-collapse-height;
+  width: $el-aside-collapse-width;
 }
 
 .menuScrollbar {
