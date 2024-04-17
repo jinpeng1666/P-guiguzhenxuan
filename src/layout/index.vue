@@ -7,6 +7,7 @@
           aside: !settingStore.isCollapse,
           collapseAside: settingStore.isCollapse,
         }"
+        style="transition: all 0.3s"
       >
         <Logo></Logo>
         <el-scrollbar class="menuScrollbar">

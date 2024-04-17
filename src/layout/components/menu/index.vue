@@ -6,6 +6,7 @@
       style="background-color: #a3b18a"
       :default-active="$route.path"
       :collapse="settingStore.isCollapse"
+      :collapse-transition="false"
     >
       <template v-for="item in menuList" :key="item.path">
         <!-- 没有子路由 -->
