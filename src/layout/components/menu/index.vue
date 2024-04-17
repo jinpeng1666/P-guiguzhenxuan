@@ -3,7 +3,7 @@
     <!-- element菜单 -->
     <el-menu
       router
-      style="background-color: #a3b18a"
+      style="background-color: #a3b18a; width: 100%"
       :default-active="$route.path"
       :collapse="settingStore.isCollapse"
       :collapse-transition="false"
