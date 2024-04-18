@@ -13,7 +13,13 @@
       </el-breadcrumb>
     </div>
     <div class="tabbar_right">
-      <el-button type="primary" size="small" icon="Refresh" circle></el-button>
+      <el-button
+        type="primary"
+        size="small"
+        icon="Refresh"
+        circle
+        @click="changeRefsh"
+      ></el-button>
       <el-button
         type="primary"
         size="small"
@@ -51,11 +57,14 @@ const settingStore = useSettingStore()
 // 点击改变是否左侧菜单折叠
 const changeIsCollapse = () => {
   settingStore.isCollapse = !settingStore.isCollapse
-  console.log(settingStore.isCollapse)
 }
+// 获取路由信息
 import { useRoute } from 'vue-router'
 const $route = useRoute()
-console.log($route.matched[1].meta.title)
+
+const changeRefsh = () => {
+  settingStore.refsh = !settingStore.refsh
+}
 </script>
 
 <style scoped lang="scss">
