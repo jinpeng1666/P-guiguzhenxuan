@@ -22,7 +22,7 @@
         </el-header>
         <!-- 右侧展示内容区 -->
         <el-main style="background-color: #dad7cd">
-          <router-view></router-view>
+          <Main></Main>
         </el-main>
       </el-container>
     </el-container>
@@ -33,6 +33,7 @@
 import Logo from './components/logo/index.vue'
 import Menu from './components/menu/index.vue'
 import Tabbar from './components/tabbar/index.vue'
+import Main from './components/main/index.vue'
 
 import { computed } from 'vue'
 
