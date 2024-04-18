@@ -7,8 +7,9 @@
       </el-icon>
       <!-- 左侧面包屑 -->
       <el-breadcrumb separator-icon="ArrowRight">
-        <el-breadcrumb-item>权限管理</el-breadcrumb-item>
-        <el-breadcrumb-item>用户管理</el-breadcrumb-item>
+        <el-breadcrumb-item>
+          {{ $route.matched[1].meta.title }}
+        </el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <div class="tabbar_right">
@@ -52,6 +53,9 @@ const changeIsCollapse = () => {
   settingStore.isCollapse = !settingStore.isCollapse
   console.log(settingStore.isCollapse)
 }
+import { useRoute } from 'vue-router'
+const $route = useRoute()
+console.log($route.matched[1].meta.title)
 </script>
 
 <style scoped lang="scss">
@@ -71,5 +75,9 @@ const changeIsCollapse = () => {
     display: flex;
     align-items: center;
   }
+}
+// 设置面包屑的字体颜色
+.el-breadcrumb__inner {
+  color: #000;
 }
 </style>
