@@ -25,6 +25,7 @@
         size="small"
         icon="FullScreen"
         circle
+        @click="fullScreen"
       ></el-button>
       <el-button type="primary" size="small" icon="Setting" circle></el-button>
       <img
@@ -62,8 +63,19 @@ const changeIsCollapse = () => {
 import { useRoute } from 'vue-router'
 const $route = useRoute()
 
+// 点击刷新
 const changeRefsh = () => {
   settingStore.refsh = !settingStore.refsh
+}
+
+// 点击全屏
+const fullScreen = () => {
+  let isFull = document.fullscreenElement
+  if (!isFull) {
+    document.documentElement.requestFullscreen()
+  } else {
+    document.exitFullscreen()
+  }
 }
 </script>
 
