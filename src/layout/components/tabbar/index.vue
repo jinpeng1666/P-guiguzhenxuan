@@ -2,7 +2,8 @@
   <div class="tabbar">
     <div class="tabbar_left">
       <el-icon style="margin-right: 5px" @click="changeIsCollapse">
-        <Expand />
+        <Expand v-if="!settingStore.isCollapse" />
+        <Fold v-else />
       </el-icon>
       <!-- 左侧面包屑 -->
       <el-breadcrumb separator-icon="ArrowRight">
