@@ -14,7 +14,7 @@ request.interceptors.request.use((config) => {
   const userStore = useUserStore()
   // 请求头带有token
   if (userStore.token) {
-    config.headers.Token = userStore.token
+    config.headers.token = userStore.token
   }
   return config
 })
