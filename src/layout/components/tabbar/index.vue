@@ -42,7 +42,7 @@
         </span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>退出登录</el-dropdown-item>
+            <el-dropdown-item @click="logout">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -63,9 +63,10 @@ const userStore = useUserStore()
 const changeIsCollapse = () => {
   settingStore.isCollapse = !settingStore.isCollapse
 }
-// 获取路由信息
-import { useRoute } from 'vue-router'
+// 获取路由信息和路由器
+import { useRoute, useRouter } from 'vue-router'
 const $route = useRoute()
+const $router = useRouter()
 
 // 点击刷新
 const changeRefsh = () => {
@@ -80,6 +81,12 @@ const fullScreen = () => {
   } else {
     document.exitFullscreen()
   }
+}
+
+// 点击退出登录
+const logout = () => {
+  userStore.logout()
+  $router.push('/login')
 }
 </script>
 
