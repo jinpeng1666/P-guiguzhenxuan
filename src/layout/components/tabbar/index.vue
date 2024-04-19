@@ -29,13 +29,13 @@
       ></el-button>
       <el-button type="primary" size="small" icon="Setting" circle></el-button>
       <img
-        src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif"
+        :src="userStore.avatar"
         style="width: 20px; height: 20px; margin: 0 10px"
       />
       <!-- 下拉菜单 -->
       <el-dropdown>
         <span class="el-dropdown-link">
-          admin
+          {{ userStore.userName }}
           <el-icon class="el-icon--right">
             <arrow-down />
           </el-icon>
@@ -54,6 +54,10 @@
 // 引入setting仓库
 import useSettingStore from '@/store/modules/setting.ts'
 const settingStore = useSettingStore()
+
+// 引入user仓库
+import useUserStore from '@/store/modules/user'
+const userStore = useUserStore()
 
 // 点击改变是否左侧菜单折叠
 const changeIsCollapse = () => {
