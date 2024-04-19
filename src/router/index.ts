@@ -27,6 +27,10 @@ router.beforeEach((to, from, next) => {
   const userStore = useUserStore()
   nprogress.start()
   if (userStore.token) {
+    // 获取用户名和头像地址
+    if (userStore.avatar === '' && userStore.userName === '') {
+      userStore.userMessage()
+    }
     if (to.path === '/login') {
       next('/')
       nprogress.done()
