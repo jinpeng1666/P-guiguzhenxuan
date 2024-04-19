@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 // 导入登陆api
-import { reqLogin } from '@/api/user'
+import { reqLogin, reqUserInfo } from '@/api/user'
 // 引入数据类型
 import type { loginForm, loginResponseData } from '@/api/user/type'
 import type { UserState } from './types/type'
@@ -11,6 +11,8 @@ const useUserStore = defineStore('User', {
   state: (): UserState => {
     return {
       token: getToken() as string,
+      userName: '',
+      avatar: '',
     }
   },
   actions: {
@@ -23,6 +25,12 @@ const useUserStore = defineStore('User', {
       } else {
         return Promise.reject(new Error(result.data.message))
       }
+    },
+    // 在有token的情况下，获取userName和avatar
+    async userMessage() {
+      const result = await reqUserInfo()
+      this.avatar = result.data.checkUser.avatar
+      this.userName = result.data.checkUser.username
     },
   },
   getters: {},
