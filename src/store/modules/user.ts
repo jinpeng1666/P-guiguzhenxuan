@@ -5,7 +5,7 @@ import { reqLogin, reqUserInfo } from '@/api/user'
 import type { loginForm, loginResponseData } from '@/api/user/type'
 import type { UserState } from './types/type'
 // 导入js-cookie
-import { getToken, setToken } from '@/utils/auth'
+import { getToken, setToken, removeToken } from '@/utils/auth'
 
 const useUserStore = defineStore('User', {
   state: (): UserState => {
@@ -31,6 +31,13 @@ const useUserStore = defineStore('User', {
       const result = await reqUserInfo()
       this.avatar = result.data.checkUser.avatar
       this.userName = result.data.checkUser.username
+    },
+    // 退出登录，删除信息
+    logout() {
+      this.token = ''
+      this.userName = ''
+      this.avatar = ''
+      removeToken()
     },
   },
   getters: {},
